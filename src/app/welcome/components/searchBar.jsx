@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { SearchOutlined } from "@mui/icons-material";
 
 export default function SearchBar({ setSongs }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,7 +44,7 @@ export default function SearchBar({ setSongs }) {
           type="text"
         ></input>
         <button type="submit" onClick={() => getSongs()}>
-          Search
+          <SearchOutlined />
         </button>
       </form>
     </div>

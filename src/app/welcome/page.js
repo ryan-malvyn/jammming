@@ -9,6 +9,11 @@ import { useEffect, useState } from "react";
 const WelcomePage = () => {
   const [token, setToken] = useState(null);
   const [songs, setSongs] = useState(null);
+  const [chosenSongs, setChosenSongs] = useState([]);
+
+  useEffect(() => {
+    console.log(chosenSongs);
+  }, [chosenSongs]);
 
   useEffect(() => {
     const accessToken = localStorage.getItem("spotifyAccessToken");
@@ -18,14 +23,18 @@ const WelcomePage = () => {
   }, []);
 
   return (
-    <div className="flex max-w-screen-sm justify-center">
+    <div className="flex justify-center">
       <div className="w-4/6 mt-20">
         <div className="flex mb-12 justify-center">
           <SearchBar setSongs={setSongs} />
         </div>
-        <div className="flex justify-between p-2 border-2 border-red-600">
-          <TrackList songs={songs} />
-          <Playlist />
+        <div className="flex justify-between">
+          <TrackList
+            songs={songs}
+            setChosenSongs={setChosenSongs}
+            chosenSongs={chosenSongs}
+          />
+          <Playlist chosenSongs={chosenSongs} setChosenSongs={setChosenSongs} />
         </div>
       </div>
     </div>
