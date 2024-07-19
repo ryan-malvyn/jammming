@@ -21,7 +21,7 @@ export default function Track({
       const chosenSong = {
         album: album,
         artists: artists,
-        uri: modifiedUri,
+        uri: songUri,
         imageLink: imageLink,
         title: name,
       };

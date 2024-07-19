@@ -6,7 +6,8 @@ const AuthPage = () => {
   useEffect(() => {
     const clientId = "d7c3571a88ac4263b2ed94751b8e13c8";
     const redirectUri = "http://localhost:3000/callback";
-    const scopes = "user-read-private user-read-email";
+    const scopes =
+      "user-read-private user-read-email playlist-modify-private playlist-modify-public";
     const authUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
     window.location.href = authUrl;
